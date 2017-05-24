@@ -2,8 +2,28 @@ angular.module('ionicApp.controllers', [])
 
 .controller('signupCtrl', function($scope, $state, $rootScope, LoginService, $ionicPopup) {
     $scope.data = {}
+<<<<<<< HEAD
  
     $scope.logIn = function() {
+=======
+   $scope.logIn = function() {
+        LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
+            $state.go('tabs')
+        }).error(function(data) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Login failed!',
+                template: 'Please check your credentials!'
+            });
+        });
+    }
+
+    $scope.phone = function(data) {
+        $state.go('phone')
+        console.log('Enter Phone Number')
+    }
+
+    $scope.login = function() {
+>>>>>>> 5af0937f263143144d6514ad12698d02752c4254
         LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
             $state.go('tabs.contacts')
             console.log('Login Successfully')
