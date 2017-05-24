@@ -1,0 +1,20 @@
+<ion-view view-title="Sign-In">  
+  <ion-content padding="true" class="has-header">
+    <form>
+      <ion-list>
+        <label class="item item-input">
+          <input type="text" placeholder="Username" ng-model="data.username">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Password" ng-model="data.password">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button button-block button-positive" ng-click="logIn()">Log-In
+        </button>
+      </div>
+      <div>
+        <button ng-click="phone(data)" class="button button-positive button-clear button-block">New User? Click here to Register</button>
+      </div>
+  </ion-content>
+</ion-view>
