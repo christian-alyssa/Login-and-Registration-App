@@ -4,7 +4,7 @@ angular.module('ionicApp.controllers', [])
     $scope.data = {}
    $scope.logIn = function() {
         LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
-            $state.go('tabs')
+            $state.go('tabs');
         }).error(function(data) {
             var alertPopup = $ionicPopup.alert({
                 title: 'Login failed!',

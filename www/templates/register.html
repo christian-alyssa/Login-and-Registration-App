@@ -4,19 +4,23 @@
             <ion-list>
                 <label class="item item-input">
                     <span class="input-label">Username</span>
-                    <input type="text" ng-model="data.username">
+                    <input type="text" placeholder="username" ng-model="data.username">
                 </label>
                 <label class="item item-input">
                     <span class="input-label">First Name</span>
-                    <input type="text" ng-model="data.firstname">
+                    <input type="text" placeholder="first name" ng-model="data.firstname">
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Last Name</span>
-                    <input type="text" ng-model="data.lastname">
+                    <input type="text" placeholder="last name" ng-model="data.lastname">
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Password</span>
                     <input type="password" placeholder="Minimum of 6 characters" ng-model="data.password">
+                </label>
+                  <label class="item item-input">
+                    <span class="input-label">Confirm Password</span>
+                    <input type="password"  placeholder="password must match" ng-model="data.password">
                 </label>
             <br />
             <button ng-click="register(data)" class="button button-block button-positive">Register</button>
