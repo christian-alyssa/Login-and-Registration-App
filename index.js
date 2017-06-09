@@ -4,6 +4,8 @@ var port = process.env.PORT || 8000;
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
+app.use(bodyParser.json());
+
 Users = require('./models/users');
 
 mongoose.connect('mongodb://localhost/loginapp');
@@ -17,30 +19,55 @@ app.get('/users', function (req, res) {
         }
     res.json(users);
 
+    });  
+
+}); 
+
+
+ // add new users
+
+app.post('/users', function (req, res) {
+    var users = req.body;
+    Users.addUsers(users, function(err, users){
+        if(err){
+            throw err;
+        }
+    res.json(users);
+
     });
 
 }); 
 
-/*
-app.post('/login', function (req, res) {
-    
-  
-console.log (req.body);
-    if (req.body.username === 'alyssa' && req.body.password === '123') {
-        res.json({
-            message: 'success!'
-        });
-    } else {
-        res.json({
-            message: 'failed!'
-        });
-    }
 
-});  
+ // update users 
 
-*/
+app.put('/users/:_id', function (req, res) {
+    var id = req.params._id;
+    var users = req.body;
+    Users.updateUsers(id, users, {}, function(err, users){
+        if(err){
+            throw err;
+        }
+    res.json(users);
 
+    });
+
+}); 
+
+// delete users
+
+app.delete('/users/:_id', function (req, res) {
+    var id = req.params._id;
+    Users.removeUsers(id, function(err, users){
+        if(err){
+            throw err;
+        }
+    res.json(users);
+
+    });
+
+}); 
 
 app.listen(port);
 
-console.log('todo list RESTful API server started on: ' + port);
+console.log('RESTful API started on: ' + port);
