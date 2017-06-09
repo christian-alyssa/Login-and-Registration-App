@@ -2,25 +2,31 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 8000;
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+Users = require('./models/users');
+
+mongoose.connect('mongodb://localhost/loginapp');
+var db = mongoose.connection;
 
 
-app.get('/info', function (req, res) {
+app.get('/users', function (req, res) {
+    Users.getUsers(function(err, users){
+        if(err){
+            throw err;
+        }
+    res.json(users);
 
-    console.log ('id = ' + req.query.id );
-
-    res.json({
-        message: 'hello'
     });
 
-});
+}); 
 
+/*
 app.post('/login', function (req, res) {
-
-
-    if (req.body.username === 'user' && req.body.password === 'password') {
+    
+  
+console.log (req.body);
+    if (req.body.username === 'alyssa' && req.body.password === '123') {
         res.json({
             message: 'success!'
         });
@@ -30,12 +36,11 @@ app.post('/login', function (req, res) {
         });
     }
 
-});
+});  
 
-
+*/
 
 
 app.listen(port);
-
 
 console.log('todo list RESTful API server started on: ' + port);
