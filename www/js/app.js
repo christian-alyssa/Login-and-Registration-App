@@ -6,8 +6,10 @@ angular.module('ionicApp', ['ionic', 'ionicApp.controllers', 'ionicApp.services'
     .state('login', {
       url: '/log-in',
       templateUrl: 'templates/log-in.html',
-      controller: 'signupCtrl'
+      controller: 'loginCtrl'
+
 })
+
 
     .state('register', {
       url: '/register',
@@ -35,6 +37,7 @@ angular.module('ionicApp', ['ionic', 'ionicApp.controllers', 'ionicApp.services'
       templateUrl: 'templates/phone.html',
       controller: 'phoneCtrl'
 })
+
 
    .state('validation', {
       url: '/validation',

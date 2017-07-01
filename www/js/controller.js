@@ -1,6 +1,6 @@
 angular.module('ionicApp.controllers', [])
 
-.controller('signupCtrl', function($scope, LoginService, $ionicPopup, $state) {
+.controller('loginCtrl', function($scope, LoginService, $ionicPopup, $state) {
     $scope.data = {}
  
     $scope.logIn = function() {
@@ -30,7 +30,6 @@ angular.module('ionicApp.controllers', [])
         console.log('Validation Page')
     }
 
-
 })
 
 .controller('validationCtrl', function($scope, $ionicPopup, $state) {
@@ -42,6 +41,20 @@ angular.module('ionicApp.controllers', [])
         template: '<h4 style="text-align: center">Success!</h4>' 
     })
 
-    }
+}
+
     
+})
+
+.controller('signupCtrl', function($scope, $ionicPopup, $state) {
+    $scope.signup = function(data) {
+        $state.go('register')
+        console.log('Success')
+        var alertPopup = $ionicPopup.alert({
+                title: 'Registered',
+        template: '<h4 style="text-align: center">Success!</h4>' 
+    })
+
+}
+
 })
