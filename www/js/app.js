@@ -45,6 +45,13 @@ angular.module('ionicApp', ['ionic', 'ionicApp.controllers', 'ionicApp.services'
       controller: 'validationCtrl'
 })
 
+.state('profile', {
+      url: '/profile',
+      templateUrl: 'templates/profile.html',
+      controller: 'profileCtrl'
+})
+
+
     $urlRouterProvider.otherwise('/log-in');
 
 })

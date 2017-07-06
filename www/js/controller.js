@@ -4,7 +4,7 @@ angular.module('ionicApp.controllers', [])
     $scope.data = {}
  
     $scope.logIn = function() {
-        LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
+            LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
             $state.go('tabs.contacts')
             console.log('Login Successfully')
         })
@@ -48,7 +48,7 @@ angular.module('ionicApp.controllers', [])
 
 .controller('signupCtrl', function($scope, $ionicPopup, $state) {
     $scope.signup = function(data) {
-        $state.go('register')
+        $state.go('login')
         console.log('Success')
         var alertPopup = $ionicPopup.alert({
                 title: 'Registered',
